@@ -9,6 +9,26 @@ Control Stepper Motor remotely using WiFI using ESP8266, DRV8825 and the Blynk A
 
 # DEPRECATED - YOU CAN STOP HERE!!!
 
+## Personal App Prototype (BuildMate)
+A standalone browser app was added to help with early construction sketches and quick client estimates.
+
+### Files
+- `app.html` — UI shell and project workspace
+- `app.css` — styling and responsive layout
+- `app.js` — drawing board, estimate calculator, and local storage support
+
+### Run locally
+Open `app.html` in any modern browser. No install or backend required.
+
+### Features
+- Project profile fields (client, project, address, markup)
+- Freehand sketch canvas for conceptual layout notes
+- Estimate line items with subtotal + markup + total
+- Save/load project data in browser local storage
+- Export estimate payload as JSON
+
+---
+
 
 The Project
 -----------
