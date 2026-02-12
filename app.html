@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BuildMate Personal App</title>
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>BuildMate</h1>
+    <p>Your personal construction sketch + estimate workspace</p>
+  </header>
+
+  <main class="layout">
+    <section class="card">
+      <h2>Project Profile</h2>
+      <div class="grid two-col">
+        <label>Client name
+          <input id="clientName" placeholder="Jane Smith" />
+        </label>
+        <label>Project name
+          <input id="projectName" placeholder="Kitchen remodel" />
+        </label>
+        <label>Site address
+          <input id="projectAddress" placeholder="123 Main St" />
+        </label>
+        <label>Markup (%)
+          <input id="markupPercent" type="number" min="0" step="0.1" value="15" />
+        </label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Quick Sketch Board</h2>
+      <div class="toolbar">
+        <label>Color <input id="penColor" type="color" value="#1f6feb" /></label>
+        <label>Size <input id="penSize" type="range" min="1" max="12" value="3" /></label>
+        <button id="clearCanvas" type="button">Clear</button>
+      </div>
+      <canvas id="sketchCanvas" width="900" height="420"></canvas>
+      <small>Use this to draw room layouts, wall positions, and notes during client calls.</small>
+    </section>
+
+    <section class="card">
+      <h2>Estimate Builder</h2>
+      <form id="lineItemForm" class="grid estimate-form">
+        <input id="itemName" placeholder="Line item (e.g., flooring labor)" required />
+        <input id="itemQty" type="number" min="0" step="0.01" placeholder="Qty" required />
+        <input id="itemUnitCost" type="number" min="0" step="0.01" placeholder="Unit cost" required />
+        <button type="submit">Add line</button>
+      </form>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Qty</th>
+              <th>Unit</th>
+              <th>Total</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="lineItems"></tbody>
+        </table>
+      </div>
+
+      <div class="totals">
+        <p>Subtotal: <strong id="subtotalValue">$0.00</strong></p>
+        <p>Markup: <strong id="markupValue">$0.00</strong></p>
+        <p>Client total: <strong id="grandTotalValue">$0.00</strong></p>
+      </div>
+
+      <div class="actions">
+        <button id="saveApp" type="button">Save project</button>
+        <button id="loadApp" type="button">Load saved</button>
+        <button id="exportEstimate" type="button">Export estimate JSON</button>
+      </div>
+      <pre id="exportBox" aria-live="polite"></pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>BuildMate is a lightweight local-first prototype.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
